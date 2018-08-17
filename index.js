@@ -202,6 +202,16 @@ client.on('message', (message) => {
 });
 
 client.on('message', (message) => {
+    if(message.content == '+ligma'){
+        var text = "You have " + Math.floor((Math.random() * 100) + 1) + "% ligma <:GWqlabsArmLeft:463123955772030976> <:ninja:480134047969050634> <:vbucksarmright:467371808782417940>";
+        message.channel.send({embed: {
+        color: 15844367,
+        description: text
+}});
+    }
+});
+
+client.on('message', (message) => {
     if(message.content == '+help'){
         message.channel.send({embed: {
     color: 15844367,
