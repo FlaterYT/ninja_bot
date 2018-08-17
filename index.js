@@ -206,6 +206,7 @@ client.on('message', (message) => {
         message.channel.send({embed: {
     color: 15844367,
     footer: {
+    text: "Bot made by Flater#0420"
     },
     thumbnail: {
       "url": "https://vz.cnwimg.com/thumbc-250x250/wp-content/uploads/2018/03/nin.jpg"
