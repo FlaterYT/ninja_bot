@@ -8,19 +8,19 @@ client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
-  client.user.setActivity(`+snap for ${client.users.size} members in ${client.guilds.size} servers.`);
+  client.user.setActivity(`+help for ${client.users.size} members in ${client.guilds.size} servers.`);
 });
 
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setActivity(`+snap for ${client.users.size} members in ${client.guilds.size} servers.`);
+  client.user.setActivity(`+help for ${client.users.size} members in ${client.guilds.size} servers.`);
 });
 
 client.on("guildDelete", guild => {
   // this event triggers when the bot is removed from a guild.
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  client.user.setActivity(`+snap for ${client.users.size} members in ${client.guilds.size} servers.`);
+  client.user.setActivity(`+help for ${client.users.size} members in ${client.guilds.size} servers.`);
 });
 
 client.on('message', (message) => {
@@ -198,6 +198,36 @@ client.on('message', (message) => {
         color: 15844367,
         description: text11
 }});
+    }
+});
+
+client.on('message', (message) => {
+    if(message.content == '+help'){
+        message.channel.send({embed: {
+    color: 15844367,
+    footer: {
+    },
+    thumbnail: {
+      "url": "https://vz.cnwimg.com/thumbc-250x250/wp-content/uploads/2018/03/nin.jpg"
+    },
+    author: {
+      name: "Ninja Commands",
+      url: "https://twitter.com/FlaterVFX",
+      icon_url: "https://www.famousbirthdays.com/headshots/tyler-blevins-6.jpg"
+    },
+    fields: [
+      {
+        name: "**Commands**",
+        value: "+snap, +invite"	
+      }
+
+    ]
+  }
+}
+        
+        
+        
+        );   
     }
 });
 
