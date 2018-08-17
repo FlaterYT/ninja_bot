@@ -14,7 +14,7 @@ client.on("ready", () => {
    if (msg.startsWith (prefix + "meme")) {
        number = 24;
        imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
-       message.channel.send ( {files: ["./images/" + imageNumber + ".png"]} )
+       message.channel.send ( {files: ["./images" + imageNumber + ".png"]} )
    }
 
 
