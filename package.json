@@ -1,0 +1,11 @@
+{
+  "name": "ninja",
+  "version": "1.0.0",
+  "description": "ninja bot",
+  "main": "app.js",
+  "author": "Flater",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.3.2"
+  }
+}
