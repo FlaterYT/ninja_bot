@@ -12,7 +12,7 @@ client.on("ready", () => {
 });
 
 client.on('message', (message) => {
-   if (msg.startsWith ("+snap")) {
+    if(message.content === "+snap") {
        number = 24;
        imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
        message.channel.send ( {files: ["./images" + imageNumber + ".png"]} )
