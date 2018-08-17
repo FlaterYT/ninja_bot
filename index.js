@@ -10,3 +10,14 @@ client.on("ready", () => {
   // docs refer to as the "ClientUser".
   client.user.setActivity(`Snapchat`);
 });
+
+   if (msg.startsWith (prefix + "meme")) {
+       number = 24;
+       imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
+       message.channel.send ( {files: ["./images/" + imageNumber + ".png"]} )
+   }
+
+
+});
+
+client.login(process.env.B0T_T0KEN);
