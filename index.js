@@ -212,6 +212,49 @@ client.on('message', (message) => {
 });
 
 client.on('message', (message) => {
+    if (message.content.indexOf("+ligma ") !=-1) {	 
+	    if (message.content.length > 14) {
+		
+//var taggedmember1 = message.mentions.members.first();
+
+var taggedmember1 = message.mentions.members.first();
+
+		var text = (taggedmember1) + " has " + Math.floor((Math.random() * 100) + 1) + "% ligma <:GWqlabsArmLeft:463123955772030976> <:ninja:480134047969050634> <:vbucksarmright:467371808782417940>";
+		
+		var messagecontentxd = message.content;
+		var text1 = messagecontentxd.replace('+ligma ','');
+		var textD = (text1) + " has " + Math.floor((Math.random() * 100) + 1) + "% ligma <:GWqlabsArmLeft:463123955772030976> <:ninja:480134047969050634> <:vbucksarmright:467371808782417940>";
+
+		
+		
+				if (taggedmember1 = "undefined") {
+    
+	
+	message.channel.send({embed: {
+        color: 15844367,
+        description: textD
+}});
+	
+	
+} else {
+   
+   
+   message.channel.send({embed: {
+        color: 15844367,
+        description: text
+}});
+   
+   
+} 
+			 
+		
+
+
+}
+}
+});
+
+client.on('message', (message) => {
     if(message.content == '+help'){
         message.channel.send({embed: {
     color: 15844367,
