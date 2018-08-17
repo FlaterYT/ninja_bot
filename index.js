@@ -15,7 +15,7 @@ client.on('message', (message) => {
     if(message.content === "+snap") {
        number = 24;
        imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
-       message.channel.send(new Discord.Attachment ( {files: ["./images/" + imageNumber + ".png"]} )
+       message.channel.send(new Discord.Attachment('./images/', '.png') )
     }
 
 
