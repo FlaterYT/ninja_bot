@@ -191,4 +191,14 @@ client.on('message', (message) => {
     }
 });
 
+client.on('message', (message) => {
+    if(message.content == 'ainsley invite'){
+       var text11 = "[Click Here](https://discordapp.com/oauth2/authorize?&client_id=480105002925555713&scope=bot&permissions=114688) to invite me to your server.";
+        message.channel.send({embed: {
+        color: 15844367,
+        description: text11
+}});
+    }
+});
+
 client.login(process.env.B0T_T0KEN);
