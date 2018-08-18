@@ -25,7 +25,7 @@ client.on("guildDelete", guild => {
 
 client.on('message', (message) => {
     if(message.content == '+snap'){
-        var meme = Math.floor((Math.random() * 25) + 1);
+        var meme = Math.floor((Math.random() * 26) + 1);
        
       
       
@@ -192,6 +192,13 @@ client.on('message', (message) => {
             if (meme == 25) {
    message.channel.send({
             file: "https://image.ibb.co/kFSz5z/25.jpg" 
+             });
+} 
+	    
+	    
+            if (meme == 26) {
+   message.channel.send({
+            file: "https://image.ibb.co/kzkxaz/26.jpg" 
              });
 } 
       
