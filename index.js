@@ -208,12 +208,47 @@ client.on('message', (message) => {
             file: "https://cdn.discordapp.com/attachments/387281775996698646/480448731632631808/Dk17yfOX0AAkbam.png" 
              });
 } 
-	    
-	    
+
+
             if (meme == 28) {
+   message.channel.send({
+            file: "https://cdn.discordapp.com/attachments/387281775996698646/480483894060384257/DkqTmp2WwAA8fe4.png" 
+             });
+} 
+	    
+	    
+            if (meme == 29) {
    message.channel.send({
             file: "https://cdn.discordapp.com/attachments/387281775996698646/480451183669018624/sjwkwllx.jpg" 
              });
+}
+
+
+if (meme == 30) {
+    message.channel.send({
+             file: "https://cdn.discordapp.com/attachments/387281775996698646/480484416536313856/DkIt73zUYAAq9rj.png" 
+              });
+} 
+
+
+if (meme == 31) {
+    message.channel.send({
+             file: "https://cdn.discordapp.com/attachments/387281775996698646/480484568407736320/DkKb4MIUUAAavF-.png" 
+              });
+}
+
+
+if (meme == 32) {
+    message.channel.send({
+             file: "https://cdn.discordapp.com/attachments/434869701970100224/480485085754294312/DkMGAL6XcAApYO4.png" 
+              });
+}
+
+
+if (meme == 33) {
+    message.channel.send({
+             file: "https://cdn.discordapp.com/attachments/434869701970100224/480485251521445888/DkMJsRPXgAEhdtd.png" 
+              });
 } 
       
     }
