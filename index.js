@@ -25,7 +25,7 @@ client.on("guildDelete", guild => {
 
 client.on('message', (message) => {
     if(message.content == '+snap'){
-        var meme = Math.floor((Math.random() * 33) + 1);
+        var meme = Math.floor((Math.random() * 44) + 1);
        
       
       
@@ -250,6 +250,83 @@ if (meme == 33) {
              file: "https://cdn.discordapp.com/attachments/434869701970100224/480485251521445888/DkMJsRPXgAEhdtd.png" 
               });
 } 
+
+
+if (meme == 34) {
+    message.channel.send({
+             file: "https://image.ibb.co/dz8EOK/36.png" 
+              });
+ } 
+       
+       
+             if (meme == 35) {
+    message.channel.send({
+             file: "https://image.ibb.co/nkb13K/37.png" 
+              });
+ } 
+         
+         
+             if (meme == 36) {
+    message.channel.send({
+             file: "https://image.ibb.co/gR0Hce/38.png" 
+              });
+ } 
+         
+         
+             if (meme == 37) {
+    message.channel.send({
+             file: "https://image.ibb.co/bUwCAz/39.png" 
+              });
+ } 
+         
+         
+             if (meme == 38) {
+    message.channel.send({
+             file: "https://image.ibb.co/jSPXAz/40.png" 
+              });
+ } 
+ 
+ 
+             if (meme == 39) {
+    message.channel.send({
+             file: "https://image.ibb.co/iKjAxe/41.png" 
+              });
+ } 
+         
+         
+             if (meme == 40) {
+    message.channel.send({
+             file: "https://image.ibb.co/f7g13K/42.png" 
+              });
+ }
+ 
+ 
+ if (meme == 41) {
+     message.channel.send({
+              file: "https://image.ibb.co/bZUXAz/43.png" 
+               });
+ } 
+ 
+ 
+ if (meme == 42) {
+     message.channel.send({
+              file: "https://image.ibb.co/gw4zqz/44.png" 
+               });
+ }
+ 
+ 
+ if (meme == 43) {
+     message.channel.send({
+              file: "https://image.ibb.co/grRCAz/34.png" 
+               });
+ }
+ 
+ 
+ if (meme == 44) {
+     message.channel.send({
+              file: "https://image.ibb.co/k0yEOK/35.png" 
+               });
+ } 
       
     }
 });
