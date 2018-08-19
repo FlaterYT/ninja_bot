@@ -5,29 +5,13 @@ sql.open("./score.sqlite");
 const config = require('./config.json');
 client.config = config;
 
-client.on("ready", () => {
-  // This event will run if the bot starts, and logs in, successfully.
-  console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-  // Example of changing the bot's playing game to something useful. `client.user` is what the
-  // docs refer to as the "ClientUser".
-  client.user.setActivity(`+help for ${client.users.size} members in ${client.guilds.size} servers.`);
-});
-
-client.on("guildCreate", guild => {
-  // This event triggers when the bot joins a guild.
-  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setActivity(`+help for ${client.users.size} members in ${client.guilds.size} servers.`);
-});
-
-client.on("guildDelete", guild => {
-  // this event triggers when the bot is removed from a guild.
-  console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  client.user.setActivity(`+help for ${client.users.size} members in ${client.guilds.size} servers.`);
-});
-
+const prefix = "+";
 client.on("message", message => {
-  if (message.author.bot) return; // Ignore bots.
-  if (message.channel.type === "dm") return; // Ignore DM channels.
+  if (message.author.bot) return;
+  if (message.channel.type !== "text") return;
+
+  if (message.content.startsWith(prefix + "ping")) {
+    message.channel.send("pong!");
   }
 
   sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
@@ -51,19 +35,41 @@ client.on("message", message => {
 
   if (!message.content.startsWith(prefix)) return;
 
-  if (message.content.startsWith("+level")) {
+  if (message.content.startsWith(prefix + "level")) {
     sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
       if (!row) return message.reply("Your current level is 0");
       message.reply(`Your current level is ${row.level}`);
     });
   } else
 
-  if (message.content.startsWith("+points")) {
+  if (message.content.startsWith(prefix + "points")) {
     sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
       if (!row) return message.reply("sadly you do not have any points yet!");
       message.reply(`you currently have ${row.points} points, good going!`);
-    }
+    });
+  }
 });
+
+client.on("ready", () => {
+  // This event will run if the bot starts, and logs in, successfully.
+  console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
+  // Example of changing the bot's playing game to something useful. `client.user` is what the
+  // docs refer to as the "ClientUser".
+  client.user.setActivity(`+help for ${client.users.size} members in ${client.guilds.size} servers.`);
+});
+
+client.on("guildCreate", guild => {
+  // This event triggers when the bot joins a guild.
+  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
+  client.user.setActivity(`+help for ${client.users.size} members in ${client.guilds.size} servers.`);
+});
+
+client.on("guildDelete", guild => {
+  // this event triggers when the bot is removed from a guild.
+  console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
+  client.user.setActivity(`+help for ${client.users.size} members in ${client.guilds.size} servers.`);
+});
+
 
 client.on('message', (message) => {
     if(message.content == '+snap'){
