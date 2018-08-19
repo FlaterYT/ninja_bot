@@ -426,24 +426,26 @@ client.on('message', (message) => {
     }
 });
 
-client.on('message', (message) => {
-    if(message.content == '+eval'){
-    if(message.author.id !== "136191833196855296") return;
+client.on("message", message => {
+  const args = message.content.split(" ").slice(1);
+
+  if (message.content.startsWith(config.prefix + "eval")) {
+    if(message.author.id !== config.ownerID) return;
     try {
-      var code = args.join(" ");
-      var evaled = eval(code);
+      const code = args.join(" ");
+      let evaled = eval(code);
 
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
 
-      message.channel.sendCode(clean(evaled), {code:"xl"});
+      message.channel.send(clean(evaled), {code:"xl"});
     } catch (err) {
-      message.channel.sendMessage(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+      message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
     }
   }
 });
 	
-const clean = text => {
+function clean(text) {
   if (typeof(text) === "string")
     return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
   else
