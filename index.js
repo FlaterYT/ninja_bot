@@ -428,7 +428,7 @@ client.on('message', (message) => {
 
 client.on('message', (message) => {
     if(message.content == '+eval'){
-    if(message.author.id !== config.ownerID) return;
+    if(message.author.id !== "136191833196855296") return;
     try {
       var code = args.join(" ");
       var evaled = eval(code);
