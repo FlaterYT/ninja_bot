@@ -25,7 +25,7 @@ client.on("guildDelete", guild => {
 
 client.on('message', (message) => {
     if(message.content == '+snap'){
-        var meme = Math.floor((Math.random() * 43 - 1 + 1) + 1);
+        var meme = Math.floor((Math.random() * 53 - 1 + 1) + 1);
        
       
       
@@ -326,7 +326,77 @@ if (meme == 34) {
      message.channel.send({
               file: "https://image.ibb.co/k0yEOK/35.png" 
                });
- } 
+ }
+
+
+ if (meme == 45) {
+  message.channel.send({
+           file: "https://image.ibb.co/j6nw3K/45.jpg" 
+            });
+} 
+       
+       
+           if (meme == 46) {
+  message.channel.send({
+           file: "https://image.ibb.co/dA0iiK/46.jpg" 
+            });
+} 
+       
+       
+           if (meme == 47) {
+  message.channel.send({
+           file: "https://image.ibb.co/jAdQxe/47.png" 
+            });
+} 
+       
+       
+           if (meme == 48) {
+  message.channel.send({
+           file: "https://image.ibb.co/eyviiK/48.jpg" 
+            });
+} 
+
+
+           if (meme == 49) {
+  message.channel.send({
+           file: "https://image.ibb.co/e9U9OK/49.jpg" 
+            });
+} 
+       
+       
+           if (meme == 50) {
+  message.channel.send({
+           file: "https://image.ibb.co/m7vSAz/50.jpg" 
+            });
+}
+
+
+if (meme == 51) {
+   message.channel.send({
+            file: "https://image.ibb.co/m0znAz/51.jpg" 
+             });
+} 
+
+
+if (meme == 52) {
+   message.channel.send({
+            file: "https://image.ibb.co/hXQ5xe/52.jpg" 
+             });
+}
+
+
+if (meme == 53) {
+   message.channel.send({
+            file: "https://image.ibb.co/jqRdHe/53.jpg" 
+             });
+}
+
+
+if (meme ==54) {
+   message.channel.send({
+            file: "https://image.ibb.co/gujnAz/54.jpg" 
+             });
+}
       
     }
 });
