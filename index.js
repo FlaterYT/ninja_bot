@@ -25,7 +25,7 @@ client.on("guildDelete", guild => {
 
 client.on('message', (message) => {
     if(message.content == '+snap'){
-        var meme = Math.floor((Math.random() * 53 - 1 + 1) + 1);
+        var meme = Math.floor((Math.random() * 54 - 1 + 1) + 1);
        
       
       
