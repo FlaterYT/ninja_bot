@@ -9,6 +9,7 @@
   },
   "engines": {
     "npm": "3.10.7"
+    "node": "8.9.1"
   },
   "author": "Flater",
   "license": "MIT",
