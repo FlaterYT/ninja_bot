@@ -426,6 +426,7 @@ client.on('message', (message) => {
 });
 
 client.on('message', (message) => {
+  const args = message.content.split(" ").slice(1);
     if(message.content == '+eval'){
     if(message.author.id !== "136191833196855296") return;
     try {
