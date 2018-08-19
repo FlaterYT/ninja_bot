@@ -530,7 +530,7 @@ client.on('message', (message) => {
     fields: [
       {
         name: "**Commands**",
-        value: "+snap, +ligma, +invite"	
+        value: "+snap, +ligma, level, points, +invite"	
       }
 
     ]
