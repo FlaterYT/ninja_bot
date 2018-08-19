@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({ fetchAllMembers: true, sync: true });
+const sql = require("sqlite");
+sql.open("./score.sqlite");
 const config = require('./config.json');
 client.config = config;
 
@@ -21,6 +23,47 @@ client.on("guildDelete", guild => {
   // this event triggers when the bot is removed from a guild.
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
   client.user.setActivity(`+help for ${client.users.size} members in ${client.guilds.size} servers.`);
+});
+
+client.on("message", message => {
+  if (message.author.bot) return; // Ignore bots.
+  if (message.channel.type === "dm") return; // Ignore DM channels.
+  }
+
+  sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
+    if (!row) {
+      sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [message.author.id, 1, 0]);
+    } else {
+      let curLevel = Math.floor(0.1 * Math.sqrt(row.points + 1));
+      if (curLevel > row.level) {
+        row.level = curLevel;
+        sql.run(`UPDATE scores SET points = ${row.points + 1}, level = ${row.level} WHERE userId = ${message.author.id}`);
+        message.reply(`You've leveled up to level **${curLevel}**! Ain't that dandy?`);
+      }
+      sql.run(`UPDATE scores SET points = ${row.points + 1} WHERE userId = ${message.author.id}`);
+    }
+  }).catch(() => {
+    console.error;
+    sql.run("CREATE TABLE IF NOT EXISTS scores (userId TEXT, points INTEGER, level INTEGER)").then(() => {
+      sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [message.author.id, 1, 0]);
+    });
+  });
+
+  if (!message.content.startsWith(prefix)) return;
+
+  if (message.content.startsWith("+level")) {
+    sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
+      if (!row) return message.reply("Your current level is 0");
+      message.reply(`Your current level is ${row.level}`);
+    });
+  } else
+
+  if (message.content.startsWith("+points")) {
+    sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
+      if (!row) return message.reply("sadly you do not have any points yet!");
+      message.reply(`you currently have ${row.points} points, good going!`);
+    });
+  }
 });
 
 client.on('message', (message) => {
