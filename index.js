@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({ fetchAllMembers: true, sync: true });
-const sql = require("sqlite");
-sql.open("./score.sqlite");
+const SQLite = require("better-sqlite3");
+const sql = new SQLite('./scores.sqlite');
 const config = require('./config.json');
 client.config = config;
 
