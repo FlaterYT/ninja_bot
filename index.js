@@ -430,15 +430,15 @@ client.on('message', (message) => {
     if(message.content == '+eval'){
     if(message.author.id !== "136191833196855296") return;
     try {
-      var code = args.join(" ");
-      var evaled = eval(code);
+      const code = args.join(" ");
+      let evaled = eval(code);
 
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
 
-      message.channel.sendCode("x1", clean(evaled));
+      message.channel.send(clean(evaled), {code:"xl"});
     } catch (err) {
-      message.channel.sendMessage(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+      message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
     }
   }
 });
