@@ -1,18 +1,17 @@
 {
   "name": "ninja",
-  "version": "1.0.0",
-  "description": "good bot.",
+  "version": "3.3.0",
+  "description": "Best bot.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\"",
     "start": "node index.js"
   },
   "engines": {
-    "npm": "5.6.0",
-    "node": "6.6.0"
+    "npm": "3.10.7"
   },
   "author": "Flater",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
     "@google-cloud/speech": "^0.3.0",
     "date.js": "^0.3.1",
