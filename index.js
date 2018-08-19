@@ -426,7 +426,8 @@ client.on('message', (message) => {
     }
 });
 
-  if (command === "eval") {
+client.on('message', (message) => {
+    if(message.content == '+eval'){
     if(message.author.id !== config.ownerID) return;
     try {
       var code = args.join(" ");
