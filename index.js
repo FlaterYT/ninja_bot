@@ -425,4 +425,30 @@ client.on('message', (message) => {
     }
 });
 
+client.on("message", message => {
+  const args = message.content.split(" ").slice(1);
+
+  if (command === "+eval") {
+    if(message.author.id !== "136191833196855296") return;
+    try {
+      var code = args.join(" ");
+      var evaled = eval(code);
+
+      if (typeof evaled !== "string")
+        evaled = require("util").inspect(evaled);
+
+      message.channel.sendCode("x1", clean(evaled));
+    } catch (err) {
+      message.channel.sendMessage(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+    }
+  }
+});
+
+function clean(text) {
+  if (typeof(text) === "string")
+    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+  else
+      return text;
+}
+
 client.login(process.env.B0T_T0KEN);
