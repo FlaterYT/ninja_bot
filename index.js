@@ -426,9 +426,6 @@ client.on('message', (message) => {
     }
 });
 
-client.on("message", message => {
-  const args = message.content.split(" ").slice(1);
-
   if (command === "eval") {
     if(message.author.id !== config.ownerID) return;
     try {
