@@ -427,20 +427,20 @@ client.on('message', (message) => {
 });
 
 client.on("message", message => {
-  const args = message.content.split(" ").slice(1);
+  var args = message.content.split(" ").slice(1);
 
   if (message.content.startsWith(config.prefix + "eval")) {
     if(message.author.id !== config.ownerID) return;
     try {
-      const code = args.join(" ");
-      let evaled = eval(code);
+      var code = args.join(" ");
+      var evaled = eval(code);
 
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
 
-      message.channel.send(clean(evaled), {code:"xl"});
+      message.channel.sendCode(clean("x1", clean(evaled));
     } catch (err) {
-      message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+      message.channel.sendMessage(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
     }
   }
 });
