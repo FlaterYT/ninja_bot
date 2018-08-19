@@ -2,6 +2,12 @@ const Discord = require("discord.js");
 const client = new Discord.Client({ fetchAllMembers: true, sync: true });
 const config = require('./config.json');
 client.config = config;
+function clean(text) {
+  if (typeof(text) === "string")
+    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+  else
+      return text;
+}
 
 
 client.on("ready", () => {
@@ -426,13 +432,6 @@ client.on('message', (message) => {
     }
 });
 
-const clean = text => {
-  if (typeof(text) === "string")
-    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-  else
-      return text;
-}
-
 client.on("message", message => {
   const args = message.content.split(" ").slice(1);
 
@@ -448,7 +447,6 @@ client.on("message", message => {
       message.channel.send(clean(evaled), {code:"xl"});
     } catch (err) {
       message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-    }
   }
 });
 
