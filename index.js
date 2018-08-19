@@ -438,6 +438,7 @@ client.on('message', (message) => {
       message.channel.sendCode(clean(evaled), {code:"xl"});
     } catch (err) {
       message.channel.sendMessage(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+    }
   }
 });
 	
