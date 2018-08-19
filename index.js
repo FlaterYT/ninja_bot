@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({ fetchAllMembers: true, sync: true });
-const SQLite = require("better-sqlite3");
-const sql = new SQLite('./scores.sqlite');
+const sql = require("sqlite");
 const config = require('./config.json');
 client.config = config;
+sql.open("./score.sqlite");
 
 const prefix = "+";
 client.on("message", message => {
