@@ -423,7 +423,7 @@ client.on('message', (message) => {
 
 client.on('message', (message) => {
     if (message.content.indexOf("+ligma ") !=-1) {	 
-	    if (message.content.length > 14) {
+	    if (message.content.length > 6) {
 		
 //var taggedmember1 = message.mentions.members.first();
 
