@@ -12,20 +12,6 @@ client.on("ready", () => {
 });
 
 client.on("guildCreate", guild => {
-  // This event triggers wheconst Discord = require("discord.js");
-const client = new Discord.Client({ fetchAllMembers: true, sync: true });
-const config = require('./config.json');
-client.config = config;
-
-client.on("ready", () => {
-  // This event will run if the bot starts, and logs in, successfully.
-  console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-  // Example of changing the bot's playing game to something useful. `client.user` is what the
-  // docs refer to as the "ClientUser".
-  client.user.setActivity(`+help for ${client.users.size} members in ${client.guilds.size} servers.`);
-});
-
-client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
   client.user.setActivity(`+help for ${client.users.size} members in ${client.guilds.size} servers.`);
