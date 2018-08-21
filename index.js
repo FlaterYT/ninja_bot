@@ -544,11 +544,11 @@ client.on('message', (message) => {
 
 var taggedmember1 = message.mentions.members.first();
 
-		var text = "Hi " + (taggedmember1) " I'm Ninja!";
+		var text = "Hi " + (taggedmember1) + " I'm Ninja!";
 		
 		var messagecontentxd = message.content;
 		var text1 = messagecontentxd.replace('im ','');
-		var textD = "Hi " + (text1) " I'm Ninja!";
+		var textD = "Hi " + (text1) + " I'm Ninja!";
 
 				if (taggedmember1 = "undefined") {
     
