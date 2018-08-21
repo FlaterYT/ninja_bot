@@ -474,7 +474,7 @@ var taggedmember1 = message.mentions.members.first();
 }
 });
 
-client.on('message', async message => {
+client.on('message', (message) => {
 	
   if (message.author.bot) return undefined;
 	
