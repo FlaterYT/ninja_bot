@@ -569,25 +569,14 @@ client.on('message', (message) => {
     }
 });
 
-client.on('message', async msg => {
-  const args = message.content.split(" ").slice(1);
-  
-  if (!msg.content.startsWith(config.prefix) || msg.author.fortniteTracker === true) return;
+client.on('message', async message => {  
+  if(message.content == '+fortnite'){
+  let username = args[0];
+  let platform = args[1] || "pc";
 
-    if (msg.content.startsWith("!fbr")) {
-        const args = msg.content.slice(config.prefix.length).trim().split(/ +/g);
+  let data = ft.getInfo(username, platform).then(data => {
 
-        do {
-            if (config.platforms.includes(args[1]) && args.length === 3) {
-                msg.channel.startTyping();
-
-                try {
-                    let username = args[0];
-                    let platform = args[1] || "pc";
-
-                    let data = ft.getInfo(username, platform).then(data => {
-
-                         console.log(data);
+      console.log(data);
   
   }).catch(e => {
       console.log(e);
