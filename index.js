@@ -570,6 +570,7 @@ client.on('message', (message) => {
 });
 
 client.on('message', (message) => {
+  const args = message.content.split(" ").slice(1);
   
   if(message.content == '+fortnite'){
   let username = args[0];
@@ -581,7 +582,8 @@ client.on('message', (message) => {
   
   }).catch(e => {
       console.log(e);
-      message.channel.send("I couldn't find that username in the database.");
+      message.channel.send("I couldn't find that username in the database."); 
+  });
   }
 });
 
