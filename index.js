@@ -536,13 +536,20 @@ client.on("message", async message => {
 }
 });
 
-client.on("message", async message => {
-   
-    if(message.author.bot) return;
-	
-    if(message.content === 'im') {
-    const sayMessage = args.join(" ");
-    message.channel.send("Hi " + [sayMessage] + "I'm Ninja!");
+client.on('message', (message) => {
+    if (message.content.indexOf("im ") !=-1) {	 
+	    if (message.content.length > 2) {
+		
+//var taggedmember1 = message.mentions.members.first();
+
+var taggedmember1 = message.mentions.members.first();
+
+		var text = "Hi " + (taggedmember1) " I'm Ninja!";
+		
+		var messagecontentxd = message.content;
+		var text1 = messagecontentxd.replace('im ','');
+		var textD = "Hi " + (text1) " I'm Ninja!";
+
 }
 });
 
