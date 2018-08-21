@@ -553,7 +553,18 @@ var taggedmember1 = message.mentions.members.first();
 				if (taggedmember1 = "undefined") {
     
 	
-	message.channel.send;
+	message.channel.send({embed: {
+        color: 'RANDOM',
+        description: textD
+}});
+	
+	
+} else {
+   
+   
+   message.channel.send({embed: {
+        color: 'RANDOM',
+        description: text
 }});
    
    
