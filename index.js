@@ -569,8 +569,20 @@ client.on('message', (message) => {
     }
 });
 
-client.on('message', async message => {  
-  if(message.content == '+fortnite'){
+client.on("message", async message => {
+	
+  if(message.author.bot) return;
+	
+  if(message.channel.type === "dm") return;
+  
+
+  if(message.content.indexOf(config.prefix) !== 0) return;
+
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+	
+    const user = message.mentions.users.first() || message.author;
+  if(command === "fortnite") {
   let username = args[0];
   let platform = args[1] || "pc";
 
