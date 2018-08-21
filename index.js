@@ -588,7 +588,7 @@ var taggedmember1 = message.mentions.members.first();
 		var text = "Hi " + (taggedmember1) + " I'm the king of Fortnite Ninja!";
 		
 		var messagecontentxd = message.content;
-		var text1 = messagecontentxd.replace('i'm ','');
+		var text1 = messagecontentxd.replace("i'm ",'');
 		var textD = "Hi " + (text1) + " I'm the king of Fortnite Ninja!";
 
 				if (taggedmember1 = "undefined") {
