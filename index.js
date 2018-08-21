@@ -479,10 +479,9 @@ client.on('message', (message) => {
   if (message.author.bot) return undefined;
 	
   let msg = message.content.toLowerCase();
-  let args = message.content.slice(prefix.length).trim().split(' ');
-  let command = args.shift().toLowerCase();
+  let message = args.shift().toLowerCase();
 	
-  if (command === 'avi') {	
+  if (message.content === '+avi') {	
     let user = message.mentions.users.first() || message.author; // User mention
     
     let embed = new Discord.RichEmbed()
