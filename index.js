@@ -554,7 +554,7 @@ var taggedmember1 = message.mentions.members.first();
     
 	
 	message.channel.send({embed: {
-        color: 'RANDOM',
+        color: 15844367,
         description: textD
 }});
 	
@@ -563,7 +563,7 @@ var taggedmember1 = message.mentions.members.first();
    
    
    message.channel.send({embed: {
-        color: 'RANDOM',
+        color: 15844367,
         description: text
 }});
    
