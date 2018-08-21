@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({ fetchAllMembers: true, sync: true });
 const config = require('./config.json');
+const Fortnite = require("fortnite")
+const ft = new fortnite(process.env.FRTNT);
 client.config = config;
 
 client.on("ready", () => {
@@ -566,6 +568,22 @@ client.on('message', (message) => {
         );   
     }
 });
+
+client.on("message", async message => {
+  if(message.content == '+fortnite'){
+
+  let username = args[0];
+  let platform = args[1] || "pc";
+
+  let data = ft.getInfo(username, platform).then(data => {
+
+      console.log(data);
+  
+  }).catch(e => {
+      console.log(e);
+      message.channel.send("I couldn't find that username in the database.");
+  });
+
 
 client.on('message', (message) => {
   const args = message.content.split(" ").slice(1);
