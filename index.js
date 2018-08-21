@@ -521,7 +521,7 @@ client.on('message', (message) => {
     fields: [
       {
         name: "**Commands**",
-        value: "+snap, +ligma, +invite, +vote"	
+        value: "+snap, +ligma, +avi, +invite, +vote"	
       }
 
     ]
