@@ -539,7 +539,7 @@ client.on("message", async message => {
 client.on("message", async message => {
     if(message.content.includes('im')) {
       const sayMessage = args.join(" ")
-    message.reply("Hi " (sayMessage) "I'm Ninja!");
+    message.reply("Hi " + (sayMessage) + "I'm Ninja!");
 }
 });
 
