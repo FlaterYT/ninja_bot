@@ -422,6 +422,16 @@ client.on('message', (message) => {
 });
 
 client.on('message', (message) => {
+    if(message.content == '+vote'){
+       var text11 = "If you are liking Ninja bot so far pls vote by [Clicking Here](https://discordbots.org/bot/480105002925555713) also if you have any suggestions for the bot join my official discord server [Here](https://discord.gg/UgBKf3F)";
+        message.channel.send({embed: {
+        color: 15844367,
+        description: text11
+}});
+    }
+});
+
+client.on('message', (message) => {
     if (message.content.indexOf("+ligma ") !=-1) {	 
 	    if (message.content.length > 6) {
 		
@@ -482,7 +492,7 @@ client.on('message', (message) => {
     fields: [
       {
         name: "**Commands**",
-        value: "+snap, +ligma, +invite"	
+        value: "+snap, +ligma, +invite, +vote"	
       }
 
     ]
