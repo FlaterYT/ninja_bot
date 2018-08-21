@@ -570,7 +570,6 @@ client.on('message', (message) => {
 });
 
 client.on('message', (message) => {
-  const args = message.content.split(" ").slice(1);
   
   if(message.content == '+fortnite'){
   let username = args[0];
