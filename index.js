@@ -536,11 +536,7 @@ client.on("message", async message => {
 }
 });
 
-client.on("message", async message => {
-    if(message.content.includes('im')) {
-    message.channel.send("Hi " + [message.content] + "I'm Ninja!");
-}
-});
+
 
 client.on('message', (message) => {
     if(message.content == '+help'){
