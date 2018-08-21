@@ -582,8 +582,8 @@ client.on("message", async message => {
   }).catch(e => {
       console.log(e);
       message.channel.send("I couldn't find that username in the database.");
-  });
-
+  }
+});
 
 client.on('message', (message) => {
   const args = message.content.split(" ").slice(1);
