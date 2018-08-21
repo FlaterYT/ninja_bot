@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({ fetchAllMembers: true, sync: true });
 const config = require('./config.json');
-const Fortnite = require("fortnite")
+const client = require("fortnite")
 const ft = new fortnite(process.env.FRTNT);
 client.config = config;
 
