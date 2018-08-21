@@ -8,8 +8,7 @@
     "start": "node index.js"
   },
   "engines": {
-    "npm": "3.10.7",
-    "node": "10.9.0"
+    "npm": "3.10.7"
   },
   "author": "Flater",
   "license": "ISC",
