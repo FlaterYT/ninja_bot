@@ -503,6 +503,39 @@ client.on("message", async message => {
 }
 });
 
+client.on("message", async message => {
+	
+  if(message.author.bot) return;
+	
+  if(message.channel.type === "dm") return;
+  
+  // Also good practice to ignore any message that does not start with our prefix, 
+  // which is set in the configuration file.
+  if(message.content.indexOf(config.prefix) !== 0) return;
+  
+  // Here we separate our "command" name, and our "arguments" for the command. 
+  // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
+  // command = say
+  // args = ["Is", "this", "the", "real", "life?"]
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+	
+    const user = message.mentions.users.first() || message.author; // Get User from mention
+  if(command === "userinfo") {
+  let embed = new Discord.RichEmbed() // Embed constructor
+  .setAuthor(`${user.tag}'s Info`, user.displayAvatarURL) // Embed's author
+  .setThumbnail(user.displayAvatarURL) // User's avatar
+  .setColor('RANDOM') // Generates random color
+  .addField('ID', user.id, true) // User ID
+  .addField('Username', user.username, true) // Username
+  .addField('Discrim', user.discriminator, true) // User tag/discriminator
+  .addField('Status', user.presence.status, true) // User status (online, idle, do not disturb, invisible/offline)
+  .addField('Bot?', user.bot, true) // If the user is bot or not
+  .setThumbnail()
+  message.channel.send(embed) // Sends the embed in the channel
+}
+});
+
 client.on('message', (message) => {
     if(message.content == '+help'){
         message.channel.send({embed: {
@@ -521,7 +554,7 @@ client.on('message', (message) => {
     fields: [
       {
         name: "**Commands**",
-        value: "+snap, +ligma, +avi, +invite, +vote"	
+        value: "+snap, +ligma, +avi, +userinfo, +invite, +vote"	
       }
 
     ]
