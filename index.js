@@ -488,8 +488,9 @@ client.on('message', (message) => {
     .setAuthor(`${user.username}'s Avatar`)
     .setImage(user.displayAvatarURL) // User's avatar
     .setColor('RANDOM') // Generate random color
-    message.channel.send(embed)
-  }
+    
+    message.channel.send(embed);
+}
 });
 
 client.on('message', (message) => {
