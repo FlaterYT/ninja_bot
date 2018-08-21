@@ -474,6 +474,24 @@ var taggedmember1 = message.mentions.members.first();
 }
 });
 
+client.on('message', async message => {
+	
+  if (message.author.bot) return undefined;
+	
+  let msg = message.content.toLowerCase();
+  let args = message.content.slice(prefix.length).trim().split(' ');
+  let command = args.shift().toLowerCase();
+	
+  if (command === 'avi') {	
+    let user = message.mentions.users.first() || message.author; // User mention
+    
+    let embed = new Discord.RichEmbed()
+    .setAuthor(`${user.username}'s Avatar`)
+    .setImage(user.displayAvatarURL) // User's avatar
+    .setColor('RANDOM') // Generate random color
+    message.channel.send(embed)
+});
+
 client.on('message', (message) => {
     if(message.content == '+help'){
         message.channel.send({embed: {
