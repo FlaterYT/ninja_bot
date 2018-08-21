@@ -542,7 +542,7 @@ client.on("message", async message => {
 	
     if(message.content === 'im') {
     const sayMessage = args.join(" ");
-    message.channel.send("Hi " (sayMessage) "I'm Ninja!");
+    message.channel.send("Hi " + (sayMessage) + "I'm Ninja!");
 }
 });
 
