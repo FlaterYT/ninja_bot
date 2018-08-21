@@ -583,6 +583,7 @@ client.on("message", async message => {
 	
     const user = message.mentions.users.first() || message.author;
   if(command === "fortnite") {
+    
   let username = args[0];
   let platform = args[1] || "pc";
 
