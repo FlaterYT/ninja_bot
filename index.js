@@ -554,14 +554,6 @@ var taggedmember1 = message.mentions.members.first();
     
 	
 	message.channel.send;
-
-}});
-	
-	
-} else {
-   
-   
-   message.channel.send;
 }});
    
    
