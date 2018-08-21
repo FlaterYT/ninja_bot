@@ -474,14 +474,20 @@ var taggedmember1 = message.mentions.members.first();
 }
 });
 
-client.on('message', (message) => {
+client.on("message", async message => {
+  if(message.author.bot) return;	
+  if(message.channel.type === "dm") return;
+  if(message.content.indexOf(config.prefix) !== 0) return;
+  
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
 	
   if (message.author.bot) return undefined;
 	
   let msg = message.content.toLowerCase();
   let message = args.shift().toLowerCase();
 	
-  if (message.content === '+avi') {	
+    if(command === "avi") {	
     let user = message.mentions.users.first() || message.author; // User mention
     
     let embed = new Discord.RichEmbed()
