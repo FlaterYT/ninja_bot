@@ -537,8 +537,8 @@ client.on("message", async message => {
 });
 
 client.on("message", async message => {
+	const sayMessage = args.join(" ")
     if(message.content.includes('im')) {
-      const sayMessage = args.join(" ")
     message.channel.send("Hi " + (sayMessage) + "I'm Ninja!");
 }
 });
