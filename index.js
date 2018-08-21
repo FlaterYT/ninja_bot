@@ -475,7 +475,7 @@ var taggedmember1 = message.mentions.members.first();
 });
 
 client.on("message", (message) => {
-    let user = message.mentions.users.first() || message.author;
+    let user = message.mentions.users.first();
     if(message.content == '+avi'){
     let embed = new Discord.RichEmbed()
     .setAuthor(`${user.username}'s Avatar`)
