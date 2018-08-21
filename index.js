@@ -549,6 +549,7 @@ var taggedmember1 = message.mentions.members.first();
 		var messagecontentxd = message.content;
 		var text1 = messagecontentxd.replace('im ','');
 		var textD = "Hi " + (text1) " I'm Ninja!";
+   message.channel.send
 
 }
 });
