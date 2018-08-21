@@ -536,7 +536,13 @@ client.on("message", async message => {
 }
 });
 
-
+client.on("message", async message => {
+   
+    if(message.author.bot) return;
+    const sayMessage = args.join(" ");
+    message.channel.send("Hi "(sayMessage) "I'm Ninja!");
+}
+});
 
 client.on('message', (message) => {
     if(message.content == '+help'){
