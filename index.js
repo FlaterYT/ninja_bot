@@ -523,10 +523,11 @@ const getUserByPlatform = (user, platform = config.platforms[0]) => {
       return fetch(`https://api.fortnitetracker.com/v1/profile/${platform}/${user}`, {
           method: 'GET',
           headers: {
-          },
-      })
-      .then(res => res)
-      .catch(error => false)
+            'TRN-Api-Key': auth.fortniteToken
+        },
+    })
+    .then(res => res)
+    .catch(error => false)
 }
 
 function setStats(msg) {
