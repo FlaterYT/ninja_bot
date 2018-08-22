@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client({ fetchAllMembers: true, sync: true });
 const config = require('./config.json');
 const client = require("fortnite")
+const fs = require("fs");
 const ft = new fortnite(process.env.FRTNT);
 client.config = config;
 
