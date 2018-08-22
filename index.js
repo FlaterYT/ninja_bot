@@ -476,116 +476,91 @@ var taggedmember1 = message.mentions.members.first();
 }
 });
 
-client.on("message", async message => {
-  if (message.author.bot) return;
-  if (message.channel.type === "dm") return;
+client.on('message', async msg => {
 
-  let prefix = config.prefix;
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-  let args = messageArray.slice(1);
+  if (!msg.content.startsWith(config.prefix) || msg.author.client === true) return;
 
-let username = args[0];
-let gamemode = args[1] || 'lifetime';
-let platform = args[2] || 'pc';
+  if (msg.content.startsWith("+fortnite")) {
+      const args = msg.content.slice(config.prefix.length).trim().split(/ +/g);
 
-if (gamemode != 'solo' && gamemode != 'duo' && gamemode != 'squad' && gamemode != 'lifetime') return message.reply("Usage: +fortnite <username> <gamemode> <platform>");
+      do {
+          if (config.platforms.includes(args[1]) && args.length === 3) {
+              msg.channel.startTyping();
 
-if (+username) return message.reply('Please provide a username');
+              try {
+                  let platformSelected = args[1]
+                  let userSelected = args[2].toLowerCase();
+                  let user = await getUserByPlatform(userSelected, platformSelected);
+                  let json = await user.json();
+                  console.log(json);
 
-let data = fortnite.user(username, platform).then(data => {
-    let stats = data.stats;
 
-    if (gamemode === 'solo') {
-        let solostats = stats.solo
+                  if (json.error) {
+                      throw new Error('Player not Found');
+                  }
 
-        let score = solostats.score;
-        let matchesPlayed = solostats.matches;
-        let wins = solostats.wins;
-        let kills = solostats.kills;
-        let kd = solostats.kd;
+                  const responseObject = {
+                      "ayy": "Ayy, lmao!",
+                      "wat": "Say what?",
+                      "lol": "roflmaotntpmp"
+                  };
+                  let found = json.lifeTimeStats.find((el) => el.key === 'Wins')
+                  // msg.reply(responseObject);
+                  setStats(msg);
+                  msg.channel.stopTyping();
 
-        let embed = new Discord.RichEmbed()
-            .setTitle('Fortnite State Tracker <Solo>')
-            .setAuthor(data.username)
-            .setColor('#4423ff')
-            .addField('Wins', wins, true)
-            .addField('Kills', kills, true)
-            .addField('Score', score, true)
-            .addField('Matches Played', matchesPlayed, true)
-            .addField('K/D', kd, true);
-
-        message.channel.send(embed);
-
-    } else if (gamemode == 'duo') {
-        let duostats = stats.duo
-
-        let score = duostats.score;
-        let matchesPlayed = duostats.matches;
-        let wins = duostats.wins;
-        let kills = duostats.kills;
-        let kd = duostats.kd;
-
-        let embed = new Discord.RichEmbed()
-            .setTitle('Fortnite State Tracker <Duo>')
-            .setAuthor(data.username)
-            .setColor('#4423ff')
-            .addField('Wins', wins, true)
-            .addField('Kills', kills, true)
-            .addField('Score', score, true)
-            .addField('Matches Played', matchesPlayed, true)
-            .addField('K/D', kd, true);
-
-        message.channel.send(embed);
-    } else if (gamemode == 'squad') {
-        let squadstats = stats.squad
-
-        let score = squadstats.score;
-        let matchesPlayed = squadstats.matches;
-        let wins = squadstats.wins;
-        let kills = squadstats.kills;
-        let kd = squadstats.kd;
-
-        let embed = new Discord.RichEmbed()
-            .setTitle('Fortnite State Tracker <Squad>')
-            .setAuthor(data.username)
-            .setColor('#4423ff')
-            .addField('Wins', wins, true)
-            .addField('Kills', kills, true)
-            .addField('Score', score, true)
-            .addField('Matches Played', matchesPlayed, true)
-            .addField('K/D', kd, true);
-
-        message.channel.send(embed);
-    } else {
-        let lifetime = stats.lifetime;
-
-        let score = lifetime[6]['Score'];
-        let matchesPlayed = lifetime[7]['Matches Played'];
-        let wins = lifetime[8]['Wins'];
-        let winper = lifetime[9]['Win%'];
-        let kills = lifetime[10]['Kills'];
-        let kd = lifetime[11]['K/d'];
-
-        let embed = new Discord.RichEmbed()
-            .setTitle('Fortnite State Tracker <Lifetime>')
-            .setAuthor(data.username)
-            .setColor('#4423ff')
-            .addField('Wins', wins, true)
-            .addField('Kills', kills, true)
-            .addField('Score', score, true)
-            .addField('Matches Played', matchesPlayed, true)
-            .addField('Win Percentage', winper, true)
-            .addField('K/D', kd, true);
-
-        message.channel.send(embed);
-    }
-
-}).catch(e => {
-    console.log(e);
-    message.channel.send('Couldnt find that username in the database');
+              } catch (error) {
+                  msg.reply(`:x: ${error}`);
+                  msg.channel.stopTyping();
+              }
+              break;
+          }
+      } while (0)
+  }
 });
-});
+
+const getUserByPlatform = (user, platform = config.platforms[0]) => {
+      return fetch(`https://api.fortnitetracker.com/v1/profile/${platform}/${user}`, {
+          method: 'GET',
+          headers: {
+          },
+      })
+      .then(res => res)
+      .catch(error => false)
+}
+
+function setStats(msg) {
+  const embed = new Discord.RichEmbed()
+      .setTitle("This is your title, it can hold 256 characters")
+      .setAuthor("Author Name", "https://i.imgur.com/lm8s41J.png")
+      /*
+       * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
+       */
+      .setColor(0x00AE86)
+      .setDescription("This is the main body of text, it can hold 2048 characters.")
+      .setFooter("This is the footer text, it can hold 2048 characters", "http://i.imgur.com/w1vhFSR.png")
+      .setImage("http://i.imgur.com/yVpymuV.png")
+      .setThumbnail("http://i.imgur.com/p2qNFag.png")
+      /*
+       * Takes a Date object, defaults to current date.
+       */
+      .setTimestamp()
+      .setURL("https://discord.js.org/#/docs/main/indev/class/RichEmbed")
+      .addField("This is a field title, it can hold 256 characters",
+          "This is a field value, it can hold 2048 characters.")
+      /*
+       * Inline fields may not display as inline if the thumbnail and/or image is too big.
+       */
+      .addField("Inline Field", "They can also be inline.", true)
+      /*
+       * Blank field, useful to create some space.
+       */
+      .addBlankField(true)
+      .addField("Inline Field 3", "You can have a maximum of 25 fields.", true);
+
+  msg.channel.send({ embed });
+}
+
 
 client.on("message", async message => {
 	
