@@ -25,6 +25,63 @@ client.on("guildDelete", guild => {
   client.user.setActivity(`+help for ${client.users.size} members in ${client.guilds.size} servers.`);
 });
 
+client.on("message", async message => {
+	
+  if(message.author.bot) return;
+	
+  if(message.channel.type === "dm") return;
+  
+  // Also good practice to ignore any message that does not start with our prefix, 
+  // which is set in the configuration file.
+  if(message.content.indexOf(config.prefix) !== 0) return;
+  
+  // Here we separate our "command" name, and our "arguments" for the command. 
+  // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
+  // command = say
+  // args = ["Is", "this", "the", "real", "life?"]
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+	
+    const user = message.mentions.users.first() || message.author;
+  if(command === "fortnite") {
+
+  let platform;
+  let username;
+
+  if (!['pc', 'xbl', 'psn'].includes(args[0])) return message.channel.send('**Please Include the platform: `+fortnite [ pc | xbl | psn ] <username>`**');
+  if (!args[1]) return message.channel.send('**Please Include the username: `+fortnite [ pc | xbl | psn ] <username>`**');
+
+  platform = args.shift();
+  username = args.join(' ');
+
+  stats.getInfo(username, platform).then(data => {
+              const embed = new Discord.MessageEmbed()
+                  .setColor(0xffffff)
+                  .setTitle(`Stats for ${data.username}`)
+                  .setDescription(`**Top Placement**\n\n**Top 3s:** *${data.lifetimeStats[0].value}*\n**Top 5s:** *${data.lifetimeStats[1].value}*\n**Top 6s:** *${data.lifetimeStats[3].value}*\n**Top 12s:** *${data.lifetimeStats[4].value}*\n**Top 25s:** *${data.lifetimeStats[5].value}*`, true)
+                  .addField('Total Score', data.lifetimeStats[6].value, true)
+                  .addField('Matches Played', data.lifetimeStats[7].value, true)
+                  .addField('Wins', data.lifetimeStats[8].value, true)
+                  .addField('Win Percentage', data.lifetimeStats[9].value, true)
+                  .addField('Kills', data.lifetimeStats[10].value, true)
+                  .addField('K/D Ratio', data.lifetimeStats[11].value, true)
+                  .addField('Kills Per Minute', data.lifetimeStats[12].value, true)
+                  .addField('Time Played', data.lifetimeStats[13].value, true)
+                  .addField('Average Survival Time', data.lifetimeStats[14].value, true)
+
+              message.channel.send(embed)
+                  .catch(error => {
+
+                    message.channel.send('Username not found!');
+                  }          
+      
+                }
+            });
+  
+
+                
+
+
 client.on('message', (message) => {
     if(message.content == '+snap'){
         var meme = Math.floor((Math.random() * 54 - 1 + 1) + 1);
@@ -567,57 +624,6 @@ client.on('message', (message) => {
         
         );   
     }
-});
-
-client.on("message", async message => {
-	
-  if(message.author.bot) return;
-	
-  if(message.channel.type === "dm") return;
-  
-  // Also good practice to ignore any message that does not start with our prefix, 
-  // which is set in the configuration file.
-  if(message.content.indexOf(config.prefix) !== 0) return;
-  
-  // Here we separate our "command" name, and our "arguments" for the command. 
-  // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
-  // command = say
-  // args = ["Is", "this", "the", "real", "life?"]
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
-	
-    const user = message.mentions.users.first() || message.author;
-  if(command === "fortnite") {
-
-  let platform;
-  let username;
-
-  if (!['pc', 'xbl', 'psn'].includes(args[0])) return message.channel.send('**Please Include the platform: `+fortnite [ pc | xbl | psn ] <username>`**');
-  if (!args[1]) return message.channel.send('**Please Include the username: `+fortnite [ pc | xbl | psn ] <username>`**');
-
-  platform = args.shift();
-  username = args.join(' ');
-
-  stats.getInfo(username, platform).then(data => {
-              const embed = new Discord.MessageEmbed()
-                  .setColor(0xffffff)
-                  .setTitle(`Stats for ${data.username}`)
-                  .setDescription(`**Top Placement**\n\n**Top 3s:** *${data.lifetimeStats[0].value}*\n**Top 5s:** *${data.lifetimeStats[1].value}*\n**Top 6s:** *${data.lifetimeStats[3].value}*\n**Top 12s:** *${data.lifetimeStats[4].value}*\n**Top 25s:** *${data.lifetimeStats[5].value}*`, true)
-                  .addField('Total Score', data.lifetimeStats[6].value, true)
-                  .addField('Matches Played', data.lifetimeStats[7].value, true)
-                  .addField('Wins', data.lifetimeStats[8].value, true)
-                  .addField('Win Percentage', data.lifetimeStats[9].value, true)
-                  .addField('Kills', data.lifetimeStats[10].value, true)
-                  .addField('K/D Ratio', data.lifetimeStats[11].value, true)
-                  .addField('Kills Per Minute', data.lifetimeStats[12].value, true)
-                  .addField('Time Played', data.lifetimeStats[13].value, true)
-                  .addField('Average Survival Time', data.lifetimeStats[14].value, true)
-
-              message.channel.send(embed)
-                  .catch(error => {
-
-                      message.channel.send('Username not found!');
-  }
 });
 
 client.on('message', (message) => {
