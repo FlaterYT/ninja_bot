@@ -477,6 +477,24 @@ var taggedmember1 = message.mentions.members.first();
 });
 
 client.on("message", async message => {
+	
+  if(message.author.bot) return;
+	
+  if(message.channel.type === "dm") return;
+  
+  // Also good practice to ignore any message that does not start with our prefix, 
+  // which is set in the configuration file.
+  if(message.content.indexOf(config.prefix) !== 0) return;
+  
+  // Here we separate our "command" name, and our "arguments" for the command. 
+  // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
+  // command = say
+  // args = ["Is", "this", "the", "real", "life?"]
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+	
+  const user = message.mentions.users.first() || message.author;
+
 let username = args[0];
 let gamemode = args[1] || 'lifetime';
 let platform = args[2] || 'pc';
