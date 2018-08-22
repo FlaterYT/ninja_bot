@@ -559,8 +559,9 @@ function setStats(msg) {
       .addBlankField(true)
       .addField("Inline Field 3", "You can have a maximum of 25 fields.", true);
 
-  msg.channel.send({ embed });
+  msg.channel.send(embed);
 }
+
 
 
 client.on("message", async message => {
