@@ -640,4 +640,4 @@ client.on("message", async message => {
     message.channel.send(embed)
 }
 
-client.login(process.env.B0T_T0KEN);})})
+client.login(process.env.B0T_T0KEN);
