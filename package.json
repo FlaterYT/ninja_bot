@@ -11,7 +11,7 @@
     "npm": "6.4.0"
   },
   "author": "Flater",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@google-cloud/speech": "^0.3.0",
     "better-sqlite3": "^4.1.4",
