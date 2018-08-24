@@ -415,6 +415,7 @@ client.on('message', (message) => {
     if(message.content == '+ligma'){
         var text = "You have " + Math.floor((Math.random() * 100) + 1) + "% ligma <:GWqlabsArmLeft:463123955772030976> <:ninja:480134047969050634> <:vbucksarmright:467371808782417940>";
         message.channel.send({embed: {
+        name: "gay r8 machine",
         color: 15844367,
         description: text
 }});
