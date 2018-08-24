@@ -422,17 +422,7 @@ client.on('message', (message) => {
 });
 
 client.on('message', (message) => {
-	  if(message.author.client) return;
-	
-  if(message.channel.type === "dm") return;
-
-  if(message.content.indexOf(config.prefix) !== 0) return;
-  
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
-	
-    const user = message.mentions.users.first() || message.author;
-    if(command === "gay zilbo") {
+    if(message.content == '+gay zilbo'){
         var text = "Zilbo is 0% gay 🏳️‍:rainbow:";
         message.channel.send({embed: {
         color: 15844367,
