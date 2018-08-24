@@ -413,7 +413,7 @@ client.on('message', (message) => {
 
 client.on('message', (message) => {
     if(message.content == '+ligma'){
-        var text = "You have " + Math.floor((Math.random() * 100) + 1) + "% ligma <:GWqlabsArmLeft:463123955772030976> <:ninja:480134047969050634> <:vbucksarmright:467371808782417940>";
+        var text = "You have " + Math.floor((Math.random() * 100) + 0) + "% ligma <:GWqlabsArmLeft:463123955772030976> <:ninja:480134047969050634> <:vbucksarmright:467371808782417940>";
         message.channel.send({embed: {
         color: 15844367,
         description: text
@@ -449,11 +449,11 @@ client.on('message', (message) => {
 
 var taggedmember1 = message.mentions.members.first();
 
-		var text = (taggedmember1) + " has " + Math.floor((Math.random() * 100) + 1) + "% ligma <:GWqlabsArmLeft:463123955772030976> <:ninja:480134047969050634> <:vbucksarmright:467371808782417940>";
+		var text = (taggedmember1) + " has " + Math.floor((Math.random() * 100) + 0) + "% ligma <:GWqlabsArmLeft:463123955772030976> <:ninja:480134047969050634> <:vbucksarmright:467371808782417940>";
 		
 		var messagecontentxd = message.content;
 		var text1 = messagecontentxd.replace('+ligma ','');
-		var textD = (text1) + " has " + Math.floor((Math.random() * 100) + 1) + "% ligma <:GWqlabsArmLeft:463123955772030976> <:ninja:480134047969050634> <:vbucksarmright:467371808782417940>";
+		var textD = (text1) + " has " + Math.floor((Math.random() * 100) + 0) + "% ligma <:GWqlabsArmLeft:463123955772030976> <:ninja:480134047969050634> <:vbucksarmright:467371808782417940>";
 
 		
 		
