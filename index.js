@@ -423,7 +423,7 @@ client.on('message', (message) => {
 
 client.on('message', (message) => {
     if(message.content == '+gay zilbo'){
-        var text = "Zilbo is 0% gay 🏳️‍:rainbow:";
+        var text = "Zilbo is 0% gay 🏳️‍🌈";
         message.channel.send({embed: {
         color: 15844367,
         description: text
