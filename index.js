@@ -422,6 +422,26 @@ client.on('message', (message) => {
 });
 
 client.on('message', (message) => {
+	  if(message.author.client) return;
+	
+  if(message.channel.type === "dm") return;
+
+  if(message.content.indexOf(config.prefix) !== 0) return;
+  
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+	
+    const user = message.mentions.users.first() || message.author;
+    if(command === "gay zilbo") {
+        var text = "Zilbo is 0% gay 🏳️‍:rainbow:";
+        message.channel.send({embed: {
+        color: 15844367,
+        description: text
+}});
+    }
+});
+
+client.on('message', (message) => {
     if(message.content == '+vote'){
        var text11 = "If you are liking Ninja bot so far pls vote by [Clicking Here](https://discordbots.org/bot/480105002925555713) also if you have any suggestions for the bot join my official discord server [Here](https://discord.gg/UgBKf3F)";
         message.channel.send({embed: {
