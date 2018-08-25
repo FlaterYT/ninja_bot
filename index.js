@@ -566,6 +566,8 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
+  if(command === "fortnite") {
+
   if (args[0].toLowerCase() == "drop") {
     let places = [
       "Lazy Links",
@@ -604,7 +606,7 @@ client.on("message", async message => {
       mode = args[2]; //Gets stats type, all or season stats
     } else {
       return message.channel.send(
-        "Error. Use the right syntax: `.fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `.fbr <epic-username> [platform pc/xbl/psn]`"
+        "Error. Use the right syntax: `+fortnite <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `+fortnite <epic-username> [platform pc/xbl/psn]`"
       ); //Sends error message
     }
   }
@@ -612,7 +614,7 @@ client.on("message", async message => {
   if (!username)
     //No username specified?
     return message.channel.send(
-      "Username not provided. Use the right syntax: `.fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `.fbr <epic-username> [platform pc/xbl/psn]`"
+      "Username not provided. Use the right syntax: `+fortnite <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `+fortnite <epic-username> [platform pc/xbl/psn]`"
     ); //Sends error message
 
   let data = ftnApi
@@ -644,7 +646,7 @@ client.on("message", async message => {
           .addBlankField()
           .addField(
             "Note",
-            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+            "If you like the bot please vote using the **`+vote`** command. "
           );
 
         message.channel.send(lifeEmbed); //Sends lifetime stats
@@ -672,7 +674,7 @@ client.on("message", async message => {
           .addBlankField()
           .addField(
             "Note",
-            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+            "If you like the bot please vote using the **`+vote`** command. "
           );
         message.channel.send(soloEmbed); //Send solo stats
 
@@ -699,7 +701,7 @@ client.on("message", async message => {
           .addBlankField()
           .addField(
             "Note",
-            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+            "If you like the bot please vote using the **`+vote`** command. "
           );
         message.channel.send(duoEmbed); //Send duo stats
 
@@ -726,7 +728,7 @@ client.on("message", async message => {
           .addBlankField()
           .addField(
             "Note",
-            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+            "If you like the bot please vote using the **`+vote`** command. "
           );
         message.channel.send(squadEmbed); //Send squad stats
       }
@@ -755,7 +757,7 @@ client.on("message", async message => {
           .addBlankField()
           .addField(
             "Note",
-            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+            "If you like the bot please vote using the **`+vote`** command. "
           );
         message.channel.send(currentSoloEmbed); //Send solo season stats
 
@@ -784,7 +786,7 @@ client.on("message", async message => {
           .addBlankField()
           .addField(
             "Note",
-            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+            "If you like the bot please vote using the **`+vote`** command. "
           );
         message.channel.send(currentDuoEmbed); //Send duo season stats
 
@@ -813,7 +815,7 @@ client.on("message", async message => {
           .addBlankField()
           .addField(
             "Note",
-            "If you like the bot and want it to be active, use the **`.donate`** command to support the bot's server costs. "
+            "If you like the bot please vote using the **`+vote`** command. "
           );
         message.channel.send(currentSquadEmbed); //Send squad stats
       }
@@ -822,10 +824,10 @@ client.on("message", async message => {
       //Error handling
       //console.log(e);
       return message.channel.send(
-        "Error. User not found, make sure you are using the right syntax: `.fbr <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `.fbr <epic-username> [platform pc/xbl/psn]`\n\n**If this problem keeps arising, make sure you use the `.issue` command to report any issues with the bot**"
+        "Error. User not found, make sure you are using the right syntax: `+fortnite <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `+fortnite <epic-username> [platform pc/xbl/psn]`\n\n**If this problem keeps happening join our support server here: https://discord.gg/sNwDy6J**"
       ); //Send error message
     });
-});        
+  }})        
 
 client.on('message', (message) => {
     if(message.content == '+help'){
