@@ -858,7 +858,8 @@ client.on('message', (message) => {
         value: "`+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn]` : Shows lifetime stats.\n`+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn] {mode all/season}` : Looks up stats for solo/duo/squad or season stats.\n`.fbr drop` : Randomly picks a spot on the fortnite map"
       },
       {
-        name: "[Click here to join our Support Server](https://discord.gg/sNwDy6J)"
+        name: "Support Server",
+        value: "Join our support server by clicking [Here](https://discord.gg/sNwDy6J)"
       }
     ]
   }
