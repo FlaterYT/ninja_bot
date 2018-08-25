@@ -1,4 +1,4 @@
 {
   "prefix": "+",
-  "ftnApi": (process.env.FRTNT),
+  "ftnApi": (process.env.FRTNT);
 }
