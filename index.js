@@ -436,7 +436,7 @@ client.on('message', (message) => {
 
 client.on('message', (message) => {
     if(message.content == '+vote'){
-       var text11 = "If you are liking Ninja bot so far pls vote by [Clicking Here](https://discordbots.org/bot/480105002925555713) also if you have any suggestions for the bot join my official discord server [Here](https://discord.gg/UgBKf3F)";
+       var text11 = "If you are liking Ninja bot so far pls vote by [Clicking Here](https://discordbots.org/bot/480105002925555713) also if you have any suggestions for the bot or need help join our support server [Here](https://discord.gg/sNwDy6J)";
         message.channel.send({embed: {
         color: 15844367,
         description: text11
@@ -824,7 +824,7 @@ client.on("message", async message => {
       //Error handling
       //console.log(e);
       return message.channel.send(
-        "Error. User not found, make sure you are using the right syntax: `+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn]`\n\n**If this problem keeps happening join our support server here: https://discord.gg/sNwDy6J**"
+        "Error. User not found, make sure you are using the right syntax: `+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn]`\n\n**If this problem keeps happening join our support server [Here](https://discord.gg/sNwDy6J)**"
       ); //Send error message
     });
   }})        
@@ -856,11 +856,13 @@ client.on('message', (message) => {
       {
         name: "**Fortnite**",
         value: "`+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn]` : Shows lifetime stats.\n`+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn] {mode all/season}` : Looks up stats for solo/duo/squad or season stats.\n`.fbr drop` : Randomly picks a spot on the fortnite map"
+      },
+      {
+        name: "[Click here to join our Support Server](https://discord.gg/sNwDy6J)"
       }
     ]
   }
-}
-        
+} 
         
         
         );   
