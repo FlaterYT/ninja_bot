@@ -631,7 +631,7 @@ client.on("message", async message => {
         let lifeKd = lifetime[11]["K/d"];
 
         let lifeEmbed = new Discord.RichEmbed()
-          .setTitle("## FORTNITE LIFETIME STATS ##")
+          .setTitle("Fortnite Lifetime Stats")
           .setThumbnail(
             "https://blog.lifetime.com/imagecache/Blog/Generic%20Lifetime%20Banner%20Blog.png"
           )
@@ -662,7 +662,7 @@ client.on("message", async message => {
         let soloKd = solo.kd;
 
         let soloEmbed = new Discord.RichEmbed()
-          .setTitle("## FORTNITE SOLO STATS ##")
+          .setTitle("Fortnite Solo Stats")
           .setThumbnail("https://s3.amazonaws.com/media.atp/42511_solof.png")
           .setDescription(`Solo stats for ${data.username}`)
           .setColor("#42b6f4")
@@ -687,7 +687,7 @@ client.on("message", async message => {
         let duoKd = duo.kd;
 
         let duoEmbed = new Discord.RichEmbed()
-          .setTitle("## FORTNITE DUO STATS ##")
+          .setTitle("Fortnite Duo Stats")
           .setThumbnail(
             "http://www.dualski.com/wp-content/uploads/2015/08/Duo.png"
           )
@@ -714,7 +714,7 @@ client.on("message", async message => {
         let squadKd = squad.kd;
 
         let squadEmbed = new Discord.RichEmbed()
-          .setTitle("## FORTNITE SQUAD STATS ##")
+          .setTitle("Fortnite Squad Stats")
           .setThumbnail(
             "https://images.joinsquad.com/Logos/squadlogo_black_hires.png"
           )
@@ -743,7 +743,7 @@ client.on("message", async message => {
         let currentSoloKd = currentSolo.kd;
 
         let currentSoloEmbed = new Discord.RichEmbed()
-          .setTitle(`## FORTNITE SEASON ${currentSeason} SOLO STATS ##`)
+          .setTitle(`Fortnite Season ${currentSeason} Solo Stats`)
           .setThumbnail("https://s3.amazonaws.com/media.atp/42511_solof.png")
           .setDescription(
             `Season ${currentSeason} Solo stats for ${data.username}`
@@ -770,7 +770,7 @@ client.on("message", async message => {
         let currentDuoKd = currentDuo.kd;
 
         let currentDuoEmbed = new Discord.RichEmbed()
-          .setTitle(`## FORTNITE SEASON ${currentSeason} DUO STATS ##`)
+          .setTitle(`Fortnite Season ${currentSeason} Duo Stats`)
           .setThumbnail(
             "http://www.dualski.com/wp-content/uploads/2015/08/Duo.png"
           )
@@ -799,7 +799,7 @@ client.on("message", async message => {
         let currentSquadKd = currentSquad.kd;
 
         let currentSquadEmbed = new Discord.RichEmbed()
-          .setTitle(`## FORTNITE SEASON ${currentSeason} SQUAD STATS ##`)
+          .setTitle(`Fortnite Season ${currentSeason} Squad Stats`)
           .setThumbnail(
             "https://images.joinsquad.com/Logos/squadlogo_black_hires.png"
           )
