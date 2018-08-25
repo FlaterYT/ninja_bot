@@ -606,7 +606,7 @@ client.on("message", async message => {
       mode = args[2]; //Gets stats type, all or season stats
     } else {
       return message.channel.send(
-        "Error. Use the right syntax: `+fortnite <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `+fortnite <epic-username> [platform pc/xbl/psn]`"
+        "Error. Use the right syntax: `+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn]`"
       ); //Sends error message
     }
   }
@@ -614,7 +614,7 @@ client.on("message", async message => {
   if (!username)
     //No username specified?
     return message.channel.send(
-      "Username not provided. Use the right syntax: `+fortnite <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `+fortnite <epic-username> [platform pc/xbl/psn]`"
+      "Username not provided. Use the right syntax: `+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn]`"
     ); //Sends error message
 
   let data = ftnApi
@@ -824,7 +824,7 @@ client.on("message", async message => {
       //Error handling
       //console.log(e);
       return message.channel.send(
-        "Error. User not found, make sure you are using the right syntax: `+fortnite <epic-username> [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `+fortnite <epic-username> [platform pc/xbl/psn]`\n\n**If this problem keeps happening join our support server here: https://discord.gg/sNwDy6J**"
+        "Error. User not found, make sure you are using the right syntax: `+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn]`\n\n**If this problem keeps happening join our support server here: https://discord.gg/sNwDy6J**"
       ); //Send error message
     });
   }})        
@@ -847,13 +847,16 @@ client.on('message', (message) => {
     fields: [
       {
         name: "**Fun**",
-        value: "+snap, +ligma, +avi, +userinfo, +invite, +vote",
+        value: "+snap, +ligma",
       },
       {
-        name: "**COMING SOON REAL SOON**",
-        value: "+test"
+        name: "**Utility**",
+        value: "+avi, +userinfo, +invite, +vote"
+      },
+      {
+        name: "**Fortnite**",
+        value: "`+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn]` : Shows lifetime stats.\n`+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn] {mode all/season}` : Looks up stats for solo/duo/squad or season stats.\n`.fbr drop` : Randomly picks a spot on the fortnite map"
       }
-
     ]
   }
 }
