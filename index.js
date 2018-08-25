@@ -848,7 +848,8 @@ client.on('message', (message) => {
       {
         name: "**Fun**",
         value: "+snap, +ligma, +avi, +userinfo, +invite, +vote",
-
+      },
+      {
         name: "**COMING SOON REAL SOON**",
         value: "+test"
       }
