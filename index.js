@@ -846,8 +846,11 @@ client.on('message', (message) => {
     },
     fields: [
       {
-        name: "**Commands**",
-        value: "+snap, +ligma, +avi, +userinfo, +invite, +vote"	
+        name: "**Fun**",
+        value: "+snap, +ligma, +avi, +userinfo, +invite, +vote",
+
+        name: "**COMING SOON REAL SOON**",
+        value: "+test"
       }
 
     ]
