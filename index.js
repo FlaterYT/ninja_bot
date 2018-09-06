@@ -600,7 +600,7 @@ client.on("message", async message => {
   //let username = args[0]; //Gets username
   let platform = args[0]
     if(platform) platform = platform.toLowerCase()
-    const username = args.slice(1,args.length).join('%20')
+    let username = args.slice(1,args.length).join('%20')
 
   if (args[2]) {
     if (args[2].toLowerCase() == "all" || args[2].toLowerCase() == "season") {
