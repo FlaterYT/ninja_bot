@@ -598,7 +598,7 @@ client.on("message", async message => {
   }
   //Fortnite stats
   //let username = args[0]; //Gets username
-  let username = args.slice(1,args.length).join('%20');
+  let username = args.slice(0,args.length).join('%20');
   let platform = args[1] || "pc"; //Gets platform, default: pc
   let mode = "life"; //Default stats: lifetime
 
