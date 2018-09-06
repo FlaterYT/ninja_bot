@@ -597,9 +597,9 @@ client.on("message", async message => {
     return message.channel.send(places[picker]); //Sends randomely picked spot
   }
   //Fortnite stats
-  //let username = args[0]; //Gets username
-  let tempUsername = message.content;
-  let username = tempUsername.replace('+fortnite', '');
+  let username = args[0]; //Gets username
+  //let tempUsername = message.content;
+  //let username = tempUsername.replace('+fortnite', '');
   let platform = args[1] || "pc"; //Gets platform, default: pc
   let mode = "life"; //Default stats: lifetime
 
