@@ -565,7 +565,6 @@ client.on("message", async message => {
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  const username = args.slice(1,args.length).join('%20')
 
   if(command === "fortnite") {
 
@@ -601,6 +600,7 @@ client.on("message", async message => {
   let username = args[0]; //Gets username
   let platform = args[1] || "pc"; //Gets platform, default: pc
   let mode = "life"; //Default stats: lifetime
+  const username = args.slice(1,args.length).join('%20')
 
   if (args[2]) {
     if (args[2].toLowerCase() == "all" || args[2].toLowerCase() == "season") {
