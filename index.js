@@ -617,10 +617,8 @@ client.on("message", async message => {
       "Username not provided. Use the right syntax: `+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn] {mode all/season}`.\nFor lifetime stats use `+fortnite <epic-username>/xbl(username)/psn(username) [platform pc/xbl/psn]`"
     ); //Sends error message
 
-  let data = ftnApi
-    .user(username, platform)
-    .then(data => {
-      let stats = data.stats; //Raw stats
+  let data = fortnite.user(username, platform).then(data => {
+        let stats = data.stats;
       if (mode == "life") {
         let lifetime = stats.lifetime; //Lifetime stats
         let lifeScore = lifetime[6]["Score"];
