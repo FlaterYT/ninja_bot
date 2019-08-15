@@ -8,7 +8,7 @@
     "start": "node index.js"
   },
   "engines": {
-    "npm": "7.0.0"
+    "npm": "6.5.0"
   },
   "author": "Flater",
   "license": "MIT",
