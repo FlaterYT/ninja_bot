@@ -874,7 +874,7 @@ client.on('message', (message) => {
   const args = message.content.split(" ").slice(1);
 	
     if (message.content.startsWith("+eval")) {
-    if(message.author.id !== "136191833196855296") return;
+    if(message.author.id !== "212698016417579014") return;
     try {
       const code = args.join(" ");
       let evaled = eval(code);
