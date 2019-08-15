@@ -8,7 +8,7 @@
     "start": "node index.js"
   },
   "engines": {
-    "npm": "6.4.0"
+    "npm": "7.0.0"
   },
   "author": "Flater",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "knuth-shuffle": "^1.0.1",
     "moment": "^2.16.0",
     "moment-duration-format": "^1.3.0",
-    "node-fetch": "^2.2.0",
+    "node-fetch": "^2.6.0",
     "node-http-ping": "^0.2.2",
     "node-schedule": "^1.2.0",
     "numeral": "^1.5.3",
